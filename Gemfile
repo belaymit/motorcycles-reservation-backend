@@ -67,5 +67,6 @@ end
 # rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-# Devise for users
+# Authentication
 gem 'devise'
+gem 'devise-jwt'

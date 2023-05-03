@@ -5,6 +5,7 @@ class Api::V1::MotorcyclesController < ApplicationController
   def index
     render json: Motorcycle.all
   end
+
   def show
     render json: @motorcycle
   end
@@ -42,6 +43,7 @@ class Api::V1::MotorcyclesController < ApplicationController
       render json: @motorcycle.errors, status: :unprocessable_entity
     end
   end
+
   private
 
   def set_motorcycle

@@ -70,3 +70,10 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Authentication
 gem 'devise'
 gem 'devise-jwt'
+
+# Serializer
+gem 'active_model_serializers', '~> 0.10.13'
+
+# Tests
+gem 'rspec-rails'
+gem 'rswag'

@@ -14,7 +14,7 @@ RSpec.describe 'api/v1/login', type: :request do
         required: %w[email password]
       }
 
-      response '200', 'Logged in succesfully.' do
+      response '200', 'Logged in Successfully.' do
         before do
           User.create(name: 'Belay', email: 'belay@gmail.com', password: '123456',
                       password_confirmation: '123456')
@@ -23,7 +23,7 @@ RSpec.describe 'api/v1/login', type: :request do
         run_test!
       end
 
-      response '401', 'Invalid Cridentials.' do
+      response '401', 'Invalid Credentials.' do
         let(:user) do
           { user: { name: 'Belay Birhanu' } }
         end

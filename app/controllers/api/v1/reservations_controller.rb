@@ -18,11 +18,11 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = current_user.bookings.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
     if @reservation.destroy
       render json: {
         status: 200,
-        message: 'Booking Deleted Successfully'
+        message: 'Reservation Deleted Successfully'
       }, status: :ok
     else
       render json: { error: @reservation.errors.full_messages }, status: :unprocessable_entity

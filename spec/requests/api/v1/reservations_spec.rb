@@ -32,15 +32,15 @@ RSpec.describe 'api/v1/reservations', type: :request do
                    id: { type: :integer },
                    start_date: { type: :date },
                    end_date: { type: :date },
-                   motorcyle: { type: :object,
-                                properties: {
-                                  id: { type: :integer },
-                                  name: { type: :string },
-                                  category: { type: :string },
-                                  image: { type: :string },
-                                  price: { type: :decimal },
-                                  description: { type: :string }
-                                }, required: %w[id name category image price description] }
+                   motorcycle: { type: :object,
+                                 properties: {
+                                   id: { type: :integer },
+                                   name: { type: :string },
+                                   category: { type: :string },
+                                   image: { type: :string },
+                                   price: { type: :decimal },
+                                   description: { type: :string }
+                                 }, required: %w[id name category image price description] }
                  },
                  required: %w[user_id motorcycle_id start_date end_date]
                }
@@ -88,7 +88,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
         let(:user_id) { @user.id }
         start_date = Date.today
         end_date = Date.today + 5
-        let(:booking) { { booking: { user_id: @user.id, motorcycle_id: @motorcycle.id, start_date:, end_date: } } }
+        let(:reservation) { { reservation: { user_id: @user.id, motorcycle_id: @motorcycle.id, start_date:, end_date: } } }
         run_test!
       end
 
@@ -108,7 +108,7 @@ RSpec.describe 'api/v1/reservations', type: :request do
       parameter name: :user_id, in: :path, type: :integer, description: 'Current User ID'
       parameter name: :id, in: :path, type: :integer, description: 'Reservation ID'
 
-      response '200', 'Reservation Delete Successfully.' do
+      response '200', 'Reservation Deleted Successfully.' do
         before do
           @user = User.create(name: 'Belay', email: 'belay@gmail.com', password: '123456',
                               password_confirmation: '123456')

@@ -10,7 +10,7 @@ first_user = User.create(name: 'Random User', email: 'randomuser@gmail.com', pas
   password_confirmation: '123456')
 second_user = User.create(name: 'Another User', email: 'anotheruser@gmail.com', password: '123456',
   password_confirmation: '123456')
-
+third_user = User.create(name: 'Belay Birhanu', email:'belay@gmail.com', password: '123456', password_confirmation: '123456' )
 
   first_vehicle = Motorcycle.create(
     name: 'Gas Scooter Moped Bike', 

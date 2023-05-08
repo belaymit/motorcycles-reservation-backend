@@ -41,12 +41,12 @@ RSpec.describe 'api/v1/motorcycles', type: :request do
       produces 'application/json'
       parameter name: :id, in: :path, type: :integer
 
-      response '200', 'Motorcycle found displayed' do
+      response '200', "Motorcycle's details is displayed" do
         before(:each) do
           @user = User.create(name: 'Belay', email: 'belay@gmail.com', password: '123456',
                               password_confirmation: '123456')
           sign_in @user
-          @motorcyle = hMotorcycle.create(
+          @motorcycle = Motorcycle.create(
             name: 'Gas Scooter Moped Bike',
             image: 'https://image.made-in-china.com/155f0j00qfhUtJVGTauL/Vespa-Type-125cc-Gas-Scooter-Moped-Bike.jpg',
             description: 'Vespa is an Italian luxury brand of scooters and mopeds manufactured by Piaggio',
@@ -64,7 +64,7 @@ RSpec.describe 'api/v1/motorcycles', type: :request do
                  category: { type: :string }
                },
                required: %w[name image description price category]
-        let(:id) { @motorcyle.id }
+        let(:id) { @motorcycle.id }
         run_test!
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe 'api/v1/motorcycles', type: :request do
     post 'Create a Motorcycle' do
       tags 'Create Motorcycle'
       consumes 'application/json'
-      parameter name: :motorcyle, in: :body, schema: {
+      parameter name: :motorcycle, in: :body, schema: {
         type: :object,
         properties: {
           name: { type: :string },
@@ -101,12 +101,12 @@ RSpec.describe 'api/v1/motorcycles', type: :request do
           )
         end
 
-        let(:motorcyle) { { motorcyle: { name: 'Gas Scooter Moped Bike', category: 'Vespa 75cc', description: 'here is some description', price: 100, image: 'https://image.made-in-china.com/155f0j00qfhUtJVGTauL/Vespa-Type-125cc-Gas-Scooter-Moped-Bike.jpg' } } }
+        let(:motorcycle) { { motorcycle: { name: 'Gas Scooter Moped Bike', category: 'Vespa 75cc', description: 'here is some description', price: 100, image: 'https://image.made-in-china.com/155f0j00qfhUtJVGTauL/Vespa-Type-125cc-Gas-Scooter-Moped-Bike.jpg' } } }
         run_test!
       end
 
-      response '401', 'invalid request' do
-        let(:motorcyle) { { motorcyle: { name: 'Vespa 75' } } }
+      response '401', 'Invalid request' do
+        let(:motorcycle) { { motorcycle: { name: 'Vespa 75' } } }
         run_test!
       end
     end

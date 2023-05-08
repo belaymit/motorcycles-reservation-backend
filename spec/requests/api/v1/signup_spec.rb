@@ -24,7 +24,7 @@ RSpec.describe 'api/v1/signup', type: :request do
         run_test!
       end
 
-      response '422', 'invalid request' do
+      response '422', 'Invalid request' do
         let(:user) do
           { user: { name: 'Belay Birhanu' } }
         end

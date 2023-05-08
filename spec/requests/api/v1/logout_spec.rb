@@ -6,7 +6,7 @@ RSpec.describe 'api/v1/logout', type: :request do
       tags 'Logout'
       consumes 'application/json'
       parameter name: :Authorization, in: :header, type: :string, description: 'Authorization Token'
-      response '200', 'Logged out succesfully' do
+      response '200', 'Logged out Successfully' do
         before do
           @user = User.create(name: 'Belay', email: 'belay@gmail.com', password: '123456',
                               password_confirmation: '123456')
